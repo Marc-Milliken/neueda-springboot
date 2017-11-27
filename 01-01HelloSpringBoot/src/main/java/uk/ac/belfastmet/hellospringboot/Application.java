@@ -16,7 +16,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		
 		logger.info("Hello Spring Boot");
-		
+		logger.info("Hello Again");
 		
 	}
 }
