@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+
+	<title>Dwarfs and Dwarves</title>
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+		
+	<nav th:replace="layouts/nav :: navFragment">
+		
+	</nav>
+		
+		
+	<div class="jumbotron text-center" >
+		<h2>Dwarfs and Dwarves</h2>
+	</div>
+	
+	<div class="container">
+         <h2>Disney Dwarfs or Tolkien Dwarves</h2>
+         <p>Select an Option</p>
+         <div class="btn-group btn-group-justified">
+           <a href="/disney" class="btn btn-info">Disney</a>
+           <a href="/tolkien" class="btn btn-info" >Tolkien</a>
+         </div>
+	</div>
+
+
+</body>
+</html>
