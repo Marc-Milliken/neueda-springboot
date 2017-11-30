@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+	<title>Rock Singles Chart Top 10</title>
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<nav th:replace="layouts/nav :: navFragment">
+	</nav>
+
+<div class="container">
+  <h2>Rock Singles Chart Top 10</h2>           
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Single Cover</th>
+      </tr>
+    </thead>
+    <tbody>
+   <tr th:each="chart : ${charts}">
+        <td th:text="${chart.position}"></td>
+        <td th:text="${chart.title}"></td>
+        <td th:text="${chart.artist}"></td>
+        <td><img th:src="${chart.image}" width="200" height="180" /></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+	
+	
+</body>
+</html>
