@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+	<title>Largest Usable Volume</title>
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+   <nav th:replace="layouts/nav :: navFragment">
+
+	</nav>
+
+<div class="container">
+  <h2>Largest Usable Volume</h2>           
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Place</th>
+        <th>Volume</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+   <tr th:each="building : ${buildings}">
+        <td th:text="${building.rank}"></td>
+        <td th:text="${building.name}"></td>
+        <td th:text="${building.country}"></td>
+        <td th:text="${building.place}"></td>
+        <td th:text="${building.measurements}"></td>
+        <td><img th:src="${building.image}" width="280" height="200" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+	
+	
+</body>
+</html>

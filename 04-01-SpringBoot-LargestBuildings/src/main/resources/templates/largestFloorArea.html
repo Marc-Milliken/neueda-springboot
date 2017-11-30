@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
 
-	<title th:text="${pageTitle}">Largest Floor Area</title>
+	<title>Largest Floor Area</title>
 	<link rel="stylesheet" 
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
 	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -19,13 +19,23 @@
   <table class="table table-bordered">
     <thead>
       <tr>
+        <th>Rank</th>
         <th>Name</th>
+        <th>Country</th>
+        <th>Place</th>
+        <th>Floor Area</th>
         <th>Image</th>
       </tr>
     </thead>
     <tbody>
-   
-     
+   <tr th:each="building : ${buildings}">
+        <td th:text="${building.rank}"></td>
+        <td th:text="${building.name}"></td>
+        <td th:text="${building.country}"></td>
+        <td th:text="${building.place}"></td>
+        <td th:text="${building.measurements}"></td>
+        <td><img th:src="${building.image}" width="280" height="200" /></td>
+      </tr>
 
     </tbody>
   </table>

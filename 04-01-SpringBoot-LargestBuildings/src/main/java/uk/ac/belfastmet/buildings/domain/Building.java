@@ -6,19 +6,19 @@ public class Building {
 	private String name;
 	private String country;
 	private String place;
-	private String floorArea;
+	private String measurements;
 	private String image;
 	
 	public Building() {
 	}
 	
-	public Building(int rank, String name, String country, String place, String floorArea, 
+	public Building(int rank, String name, String country, String place, String measurements, 
 			String image) {
 		this.rank = rank;
 		this.name = name;
 		this.country = country;
 		this.place = place;
-		this.floorArea = floorArea;
+		this.measurements = measurements;
 		this.image = image;
 	}
 	
@@ -27,7 +27,7 @@ public class Building {
 		System.out.println("Name: " + name);
 		System.out.println("Country: " + country);
 		System.out.println("Place: " + place);
-		System.out.println("Floor Area: " + floorArea);
+		System.out.println("Floor Area: " + measurements);
 	}
 
 	public int getRank() {
@@ -62,12 +62,12 @@ public class Building {
 		this.place = place;
 	}
 
-	public String getFloorArea() {
-		return floorArea;
+	public String getMeasurements() {
+		return measurements;
 	}
 
-	public void setFloorArea(String floorArea) {
-		this.floorArea = floorArea;
+	public void setMeasurements(String measurements) {
+		this.measurements = measurements;
 	}
 
 	public String getImage() {
