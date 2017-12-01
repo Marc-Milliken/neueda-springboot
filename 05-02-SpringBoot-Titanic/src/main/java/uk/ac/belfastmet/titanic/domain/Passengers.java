@@ -10,23 +10,23 @@ public class Passengers {
 	@Id
 	@GeneratedValue
 	private Integer passengerId;
-	private int survived;
-	private int pClass;
+	private Integer survived;
+	private Integer pClass;
 	private String name;
 	private String sex;
-	private int age;
-	private int sibSp;
-	private int parch;
+	private Float age;
+	private Integer sibSp;
+	private Integer parch;
 	private String ticket;
-	private double fare;
+	private Float fare;
 	private String cabin;
 	private String embarked;
 	
 	public Passengers() {
 	}
 
-	public Passengers(Integer passengerId, int survived, int pClass, String name, String sex, int age, int sibSp,
-			int parch, String ticket, double fare, String cabin, String embarked) {
+	public Passengers(Integer passengerId, Integer survived, Integer pClass, String name, String sex, 
+			Float age, Integer sibSp,Integer parch, String ticket, Float fare, String cabin, String embarked) {
 
 		this.passengerId = passengerId;
 		this.survived = survived;
@@ -54,7 +54,7 @@ public class Passengers {
 		return survived;
 	}
 
-	public void setSurvived(int survived) {
+	public void setSurvived(Integer survived) {
 		this.survived = survived;
 	}
 
@@ -62,7 +62,7 @@ public class Passengers {
 		return pClass;
 	}
 
-	public void setpClass(int pClass) {
+	public void setpClass(Integer pClass) {
 		this.pClass = pClass;
 	}
 
@@ -82,11 +82,11 @@ public class Passengers {
 		this.sex = sex;
 	}
 
-	public int getAge() {
+	public Float getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Float age) {
 		this.age = age;
 	}
 
@@ -94,7 +94,7 @@ public class Passengers {
 		return sibSp;
 	}
 
-	public void setSibSp(int sibSp) {
+	public void setSibSp(Integer sibSp) {
 		this.sibSp = sibSp;
 	}
 
@@ -102,7 +102,7 @@ public class Passengers {
 		return parch;
 	}
 
-	public void setParch(int parch) {
+	public void setParch(Integer parch) {
 		this.parch = parch;
 	}
 
@@ -118,7 +118,7 @@ public class Passengers {
 		return fare;
 	}
 
-	public void setFare(double fare) {
+	public void setFare(Float fare) {
 		this.fare = fare;
 	}
 
