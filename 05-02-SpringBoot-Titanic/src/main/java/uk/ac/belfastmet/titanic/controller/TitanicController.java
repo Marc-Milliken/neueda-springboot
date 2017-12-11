@@ -37,6 +37,12 @@ public class TitanicController {
 			model.addAttribute("passengers", passengerRepoistory.findBySurvived(1));
 			return "passengersPage";
 		}
+		
+		@GetMapping("/passengers/victims")
+		public String victims(Model model) {
+			model.addAttribute("passengers", passengerRepoistory.findBySurvived(0));
+			return "passengersPage";
+		}
 	
 		@GetMapping("/passengers/first-class")
 		public String firstClassPassengers(Model model) {

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+
+<title>Forms!</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: lavender;
+	color: black;
+	text-align: right;
+}
+</style>
+</head>
+
+<body>
+
+	<div class="jumbotron text-center">
+		<h2>Formy Form</h2>
+	</div>
+
+	<div class="container">
+
+		<form action="/result" method="POST">
+			First name:<br /> <input type="text" name="firstname" /><br />
+			Last name:<br /> <input type="text" name="lastname" /><br />
+			Gender:<br />
+			<input type="radio" name="gender" value="male" checked="checked" /> Male<br />
+			<input type="radio" name="gender" value="female" /> Female<br />
+			<input type="radio" name="gender" value="other" /> Other<br />
+			<input type="submit" value="Submit" />
+		</form>
+
+	</div>
+
+	<div class="footer">
+		<p>Copyright Marc Milliken</p>
+	</div>
+
+</body>
+</html>
