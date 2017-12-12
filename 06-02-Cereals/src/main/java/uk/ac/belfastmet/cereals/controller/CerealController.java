@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import uk.ac.belfastmet.cereals.domain.Cereal;
 import uk.ac.belfastmet.cereals.repository.CerealRepository;
 
 @Controller
@@ -27,8 +30,30 @@ public class CerealController {
 
 	@GetMapping("/cereals")
 	public String cereal(Model model) {
-		model.addAttribute("cereal", cerealRepository.findByOrderByCerealId());
+		model.addAttribute("cereals", cerealRepository.findByOrderByCerealId());
 		return "cerealPage";
+	}
+	
+	@GetMapping("/cereals/view/{cerealId}")
+	public String view(@PathVariable("cerealId") Integer cerealId, Model model) {
+		model.addAttribute("pageTitle", "View Cereal");
+		model.addAttribute("cereal", cerealRepository.findOne(cerealId));
+		return "viewCerealPage";
+	}
+	
+	@GetMapping("/cereals/add")
+	public String add(Model model) {
+		model.addAttribute("pageTitle", "Add Cereal");
+		model.addAttribute("cereal", new Cereal());
+		return "editCerealPage";
+	}
+	
+	@PostMapping("/cereals/save")
+	public String save(Cereal cereal) {
+
+		Cereal savedCereal = cerealRepository.save(cereal);
+		return "redirect:/cereals/view/" + savedCereal.getCerealId();
+		
 	}
 
 }

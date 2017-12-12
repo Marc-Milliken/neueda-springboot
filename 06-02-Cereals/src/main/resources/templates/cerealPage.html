@@ -20,42 +20,18 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>Cereal Id</th>
 					<th>Manufacturer</th>
 					<th>Cereal</th>
-					<th>Energy (kJ)</th>
-					<th>Calories (kcal)</th>
-					<th>Protein (g)</th>
-					<th>Carbohydrates (g)</th>
-					<th>Sugars (g)</th>
-					<th>Fat (g)</th>
-					<th>Saturates (g)</th>
-					<th>Fibre (g)</th>
-					<th>Sodium (g)</th>
-					<th>Salt (g)</th>
-					<th>Iron (mg)</th>
 					<th>View, Edit, Delete</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="cereals : ${cereal}">
-					<td th:text="${cereals.cerealId}"></td>
-					<td th:text="${cereals.manufacturer}"></td>
-					<td th:text="${cereals.cereal}"></td>
-					<td th:text="${cereals.energy}"></td>
-					<td th:text="${cereals.calories}"></td>
-					<td th:text="${cereals.protein}"></td>
-					<td th:text="${cereals.carbohydrate}"></td>
-					<td th:text="${cereals.sugars}"></td>
-					<td th:text="${cereals.fat}"></td>
-					<td th:text="${cereals.saturates}"></td>
-					<td th:text="${cereals.fibre}"></td>
-					<td th:text="${cereals.sodium}"></td>
-					<td th:text="${cereals.salt}"></td>
-					<td th:text="${cereals.iron}"></td>
-					<td><a href="#" th:href="@{cereals/view/} + ${cereals.cerealId}">View</a> 
-						<a href="#" th:href="@{cereals/edit/} + ${cereals.cerealId}">Edit</a> 
-						<a href="#" th:href="@{cereals/delete/} + ${cereals.cerealId}">Delete</a> </td>
+				<tr th:each="cereal : ${cereals}">
+					<td th:text="${cereal.manufacturer}"></td>
+					<td th:text="${cereal.cereal}"></td>
+					<td><a href="#" th:href="@{cereals/view/} + ${cereal.cerealId}">View</a> 
+						<a href="#" th:href="@{cereals/edit/} + ${cereal.cerealId}">Edit</a> 
+						<a href="#" th:href="@{cereals/delete/} + ${cereal.cerealId}">Delete</a> </td>
 				</tr>
 			</tbody>
 		</table>

@@ -13,69 +13,82 @@
 
 	<nav th:replace="layouts/nav :: navFragment"></nav>
 
-	<div class="jumbotron text-center">
-
-		<h1 th:text="${cereal.cereal}"></h1>
-		<h4 th:text="${cereal.manufacturer}"></h4>
-		<br />
+	<div class="container">
+	
+	<form class="form-horizontal" th:action="@{/cereals/save}"
+		th:object="${cereals}" method="POST">
+		
+		<input type="hidden" th:fields="${cereals.cerealID}" />
+		
+		
+		
+		
+		</form>
+	
+	
 	</div>
 
 	<div class="container">
+		<h2>Breakfast Cereals</h2>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>Nutritional Information</th>
-					<th>Value</th>
+					
+					<th>Cereal</th>
+					<th>Energy (kJ)</th>
+
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>Energy (kJ)</td>
-					<td th:text="${cereal.energy}"></td>
+					<td>Energy</td>
+					<td><input type="text" class="form-control" 
+					th:text="${cereals.energy}"></td>
 				</tr>
 				<tr>
-					<td>Calories (kcal)</td>
+					<td>Calories</td>
 					<td th:text="${cereal.calories}"></td>
 				</tr>
 				<tr>
-					<td>Protein (g)</td>
+					<td>Protein</td>
 					<td th:text="${cereal.protein}"></td>
 				</tr>
 				<tr>
-					<td>Carbohydrates (g)</td>
-					<td th:text="${cereal.carbohydrate}"></td>
+					<td>Carbohydrates</td>
+					<td th:text="${cereal.carbohydrates}"></td>
 				</tr>
 				<tr>
-					<td>Sugars (g)</td>
+					<td>Sugars</td>
 					<td th:text="${cereal.sugars}"></td>
 				</tr>
 				<tr>
-					<td>Fat (g)</td>
+					<td>Fat</td>
 					<td th:text="${cereal.fat}"></td>
 				</tr>
 				<tr>
-					<td>Saturates (g)</td>
+					<td>Saturates</td>
 					<td th:text="${cereal.saturates}"></td>
 				</tr>
 				<tr>
-					<td>Fibre (g)</td>
+					<td>Fibre</td>
 					<td th:text="${cereal.fibre}"></td>
 				</tr>
 				<tr>
-					<td>Sodium (g)</td>
+					<td>Sodium</td>
 					<td th:text="${cereal.sodium}"></td>
 				</tr>
 				<tr>
-					<td>Salt (g)</td>
+					<td>Salt</td>
 					<td th:text="${cereal.salt}"></td>
 				</tr>
 				<tr>
-					<td>Iron (mg)</td>
+					<td>Iron</td>
 					<td th:text="${cereal.iron}"></td>
 				</tr>
 			
 	 		</tbody>
 		</table>
+		
 	</div>
 
 
