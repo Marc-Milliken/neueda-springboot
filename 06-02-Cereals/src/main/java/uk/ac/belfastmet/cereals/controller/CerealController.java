@@ -51,6 +51,20 @@ public class CerealController {
 		return "editCerealPage";
 	}
 	
+	@GetMapping("/cereals/edit/{cerealId}")
+	public String edit(@PathVariable("cerealId") Integer cerealId, Model model) {
+		model.addAttribute("pageTitle", "Edit Cereal");
+		model.addAttribute("cereal", cerealRepository.findOne(cerealId));
+		return "editCerealPage";
+	}
+	
+	@GetMapping("/cereals/delete/{cerealId}")
+	public String delete(@PathVariable("cerealId") Integer cerealId) {
+		cerealRepository.delete(cerealId);
+		
+		return "redirect:/cereals";
+	}
+	
 	@PostMapping("/cereals/save")
 	public String save(@Valid Cereal cereal, BindingResult bindingResult, Model model) {
 
