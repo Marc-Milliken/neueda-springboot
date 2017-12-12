@@ -14,21 +14,21 @@ public class CerealController {
 
 	@Autowired
 	CerealRepository cerealRepository;
-	
+
 	public CerealController(CerealRepository cerealrepository) {
 		this.cerealRepository = cerealrepository;
 	}
-	
+
 	@GetMapping("/")
 	public String home(Model model) {
-		
+
 		return "homePage";
 	}
-	
+
 	@GetMapping("/cereals")
 	public String cereal(Model model) {
 		model.addAttribute("cereal", cerealRepository.findByOrderByCerealId());
 		return "cerealPage";
 	}
-	
+
 }

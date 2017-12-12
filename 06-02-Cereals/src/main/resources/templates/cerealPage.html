@@ -2,65 +2,67 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
 
-	<title>Titanic Passengers</title>
-	<link rel="stylesheet" 
+<title>Breakfast Cereals</title>
+<link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-   <nav th:replace="layouts/nav :: navFragment">
+	<nav th:replace="layouts/nav :: navFragment"></nav>
 
-	</nav>
+	<div class="container"></div>
 
-<div class="container">
-       
-         
+	<div class="container">
+		<h2>Breakfast Cereals</h2>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Cereal Id</th>
+					<th>Manufacturer</th>
+					<th>Cereal</th>
+					<th>Energy (kJ)</th>
+					<th>Calories (kcal)</th>
+					<th>Protein (g)</th>
+					<th>Carbohydrates (g)</th>
+					<th>Sugars (g)</th>
+					<th>Fat (g)</th>
+					<th>Saturates (g)</th>
+					<th>Fibre (g)</th>
+					<th>Sodium (g)</th>
+					<th>Salt (g)</th>
+					<th>Iron (mg)</th>
+					<th>View, Edit, Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cereals : ${cereal}">
+					<td th:text="${cereals.cerealId}"></td>
+					<td th:text="${cereals.manufacturer}"></td>
+					<td th:text="${cereals.cereal}"></td>
+					<td th:text="${cereals.energy}"></td>
+					<td th:text="${cereals.calories}"></td>
+					<td th:text="${cereals.protein}"></td>
+					<td th:text="${cereals.carbohydrate}"></td>
+					<td th:text="${cereals.sugars}"></td>
+					<td th:text="${cereals.fat}"></td>
+					<td th:text="${cereals.saturates}"></td>
+					<td th:text="${cereals.fibre}"></td>
+					<td th:text="${cereals.sodium}"></td>
+					<td th:text="${cereals.salt}"></td>
+					<td th:text="${cereals.iron}"></td>
+					<td><a href="#" th:href="@{cereals/view/} + ${cereals.cerealId}">View</a> 
+						<a href="#" th:href="@{cereals/edit/} + ${cereals.cerealId}">Edit</a> 
+						<a href="#" th:href="@{cereals/delete/} + ${cereals.cerealId}">Delete</a> </td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 
-<div class="container">
-  <h2>Breakfast Cereals</h2>           
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-     	<th>Cereal Id</th>
-        <th>Manufacturer</th>
-        <th>Cereal</th>
-        <th>Energy (kJ)</th>
-        <th>Calories (kcal)</th>
-        <th>Protein (g)</th>
-        <th>Carbohydrates (g)</th>
-        <th>Sugars (g)</th>
-        <th>Fat (g)</th>
-        <th>Saturates (g)</th>
-        <th>Fibre (g)</th>
-        <th>Sodium (g)</th>
-        <th>Salt (g)</th>
-        <th>Iron (mg)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="cereals : ${cereal}">
-        <td th:text="${cereals.cerealId}"></td>
-        <td th:text="${cereals.manufacturer}"></td>
-        <td th:text="${cereals.cereal}"></td>
-        <td th:text="${cereals.energy}"></td>
-        <td th:text="${cereals.calories}"></td>
-        <td th:text="${cereals.protein}"></td>
-        <td th:text="${cereals.carbohydrate}"></td>
-        <td th:text="${cereals.sugars}"></td>
-        <td th:text="${cereals.fat}"></td>
-        <td th:text="${cereals.saturates}"></td>
-        <td th:text="${cereals.fibre}"></td>
-        <td th:text="${cereals.sodium}"></td>
-        <td th:text="${cereals.salt}"></td>
-        <td th:text="${cereals.iron}"></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
-	
+
+
 </body>
 </html>

@@ -20,16 +20,16 @@ public class Cereal {
 	private Float fat;
 	private Float saturates;
 	private Float fibre;
-	private Float sodium;
-	private Float salt;
+	private String sodium;
+	private String salt;
 	private Float iron;
 	
 	public Cereal() {
 	}
 
 	public Cereal(Integer cerealId, String manufacturer, String cereal, Integer energy, Integer calories,
-			Float protein, Float carbohydrate, Float sugars, Float fat, Float saturates, Float fibre, Float sodium, 
-			Float salt, Float iron) {
+			Float protein, Float carbohydrate, Float sugars, Float fat, Float saturates, Float fibre, String sodium, 
+			String salt, Float iron) {
 
 		this.cerealId = cerealId;
 		this.manufacturer = manufacturer;
@@ -135,19 +135,19 @@ public class Cereal {
 		this.fibre = fibre;
 	}
 
-	public Float getSodium() {
+	public String getSodium() {
 		return sodium;
 	}
 
-	public void setSodium(Float sodium) {
+	public void setSodium(String sodium) {
 		this.sodium = sodium;
 	}
 
-	public Float getSalt() {
+	public String getSalt() {
 		return salt;
 	}
 
-	public void setSalt(Float salt) {
+	public void setSalt(String salt) {
 		this.salt = salt;
 	}
 
