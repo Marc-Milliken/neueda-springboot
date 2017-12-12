@@ -14,85 +14,98 @@
 	<nav th:replace="layouts/nav :: navFragment"></nav>
 
 	<div class="container">
-	
-	<form class="form-horizontal" th:action="@{/cereals/save}"
-		th:object="${cereals}" method="POST">
-		
-		<input type="hidden" th:fields="${cereals.cerealID}" />
-		
-		
-		
-		
-		</form>
-	
-	
-	</div>
 
-	<div class="container">
-		<h2>Breakfast Cereals</h2>
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					
-					<th>Cereal</th>
-					<th>Energy (kJ)</th>
+		<form class="form-horizontal" th:action="@{/cereals/save}"
+			th:object="${cereal}" method="POST">
 
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Energy</td>
-					<td><input type="text" class="form-control" 
-					th:text="${cereals.energy}"></td>
-				</tr>
-				<tr>
-					<td>Calories</td>
-					<td th:text="${cereal.calories}"></td>
-				</tr>
-				<tr>
-					<td>Protein</td>
-					<td th:text="${cereal.protein}"></td>
-				</tr>
-				<tr>
-					<td>Carbohydrates</td>
-					<td th:text="${cereal.carbohydrates}"></td>
-				</tr>
-				<tr>
-					<td>Sugars</td>
-					<td th:text="${cereal.sugars}"></td>
-				</tr>
-				<tr>
-					<td>Fat</td>
-					<td th:text="${cereal.fat}"></td>
-				</tr>
-				<tr>
-					<td>Saturates</td>
-					<td th:text="${cereal.saturates}"></td>
-				</tr>
-				<tr>
-					<td>Fibre</td>
-					<td th:text="${cereal.fibre}"></td>
-				</tr>
-				<tr>
-					<td>Sodium</td>
-					<td th:text="${cereal.sodium}"></td>
-				</tr>
-				<tr>
-					<td>Salt</td>
-					<td th:text="${cereal.salt}"></td>
-				</tr>
-				<tr>
-					<td>Iron</td>
-					<td th:text="${cereal.iron}"></td>
-				</tr>
+			<input type="hidden" th:fields="${cereals.cerealID}" /> 
 			
-	 		</tbody>
-		</table>
-		
+			
+			<label class="col-md-2">Cereal</label> 
+			
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="${cereal.name}" /> 
+				<span th:if="${#fields.hasErrors('name')}" th:errors="${cereal.name}"
+					th:class="help-block">Cereal Name Error</span>
+			</div>
+				
+			<label class="col-md-2">Manufacturer</label> 
+			
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="${cereal.manufacturer}" /> 
+				<span th:if="${#fields.hasErrors('manufacturer')}" th:errors="${cereal.manufacturer}"
+					th:class="help-block">Manufacturer Error</span>
+			</div>
+
+
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Nutritional Information</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Energy</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.energy}" /></td>
+					</tr>
+					<tr>
+						<td>Calories</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.calories}" /></td>
+					</tr>
+					<tr>
+						<td>Protein</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.protein}" /></td>
+					</tr>
+					<tr>
+						<td>Carbohydrate</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.carbohydrate}" /></td>
+					</tr>
+					<tr>
+						<td>Sugars</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.sugars}" /></td>
+					</tr>
+					<tr>
+						<td>Fat</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.fat}" /></td>
+					</tr>
+					<tr>
+						<td>Saturates</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.saturates}" /></td>
+					</tr>
+					<tr>
+						<td>Fibre</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.fibre}" /></td>
+					</tr>
+					<tr>
+						<td>Sodium</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.sodium}" /></td>
+					</tr>
+					<tr>
+						<td>Salt</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.salt}" /></td>
+					</tr>
+					<tr>
+						<td>Iron</td>
+						<td><input type="text" class="form-control"
+							th:field="${cereal.iron}" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+
 	</div>
-
-
-
-
 </body>
 </html>

@@ -28,13 +28,14 @@
 			<tbody>
 				<tr th:each="cereal : ${cereals}">
 					<td th:text="${cereal.manufacturer}"></td>
-					<td th:text="${cereal.cereal}"></td>
+					<td th:text="${cereal.name}"></td>
 					<td><a href="#" th:href="@{cereals/view/} + ${cereal.cerealId}">View</a> 
 						<a href="#" th:href="@{cereals/edit/} + ${cereal.cerealId}">Edit</a> 
 						<a href="#" th:href="@{cereals/delete/} + ${cereal.cerealId}">Delete</a> </td>
 				</tr>
 			</tbody>
 		</table>
+		<a class="btn btn-primary" href="/cereals/add" role="button">Add New</a>
 	</div>
 
 
