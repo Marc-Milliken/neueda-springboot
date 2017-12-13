@@ -4,29 +4,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
-public class Passengers {
+public class Passenger {
 
 	@Id
 	@GeneratedValue
 	private Integer passengerId;
 	private Integer survived;
 	private Integer pClass;
+	@NotEmpty
 	private String name;
 	private String sex;
 	private Float age;
 	private Integer sibSp;
 	private Integer parch;
 	private String ticket;
-	private Float fare;
+	private Double fare;
 	private String cabin;
 	private String embarked;
 	
-	public Passengers() {
+	public Passenger() {
 	}
 
-	public Passengers(Integer passengerId, Integer survived, Integer pClass, String name, String sex, 
-			Float age, Integer sibSp,Integer parch, String ticket, Float fare, String cabin, String embarked) {
+	public Passenger(Integer passengerId, Integer survived, Integer pClass, String name, String sex, 
+			Float age, Integer sibSp,Integer parch, String ticket, Double fare, String cabin, String embarked) {
 
 		this.passengerId = passengerId;
 		this.survived = survived;
@@ -118,7 +121,7 @@ public class Passengers {
 		return fare;
 	}
 
-	public void setFare(Float fare) {
+	public void setFare(Double fare) {
 		this.fare = fare;
 	}
 
