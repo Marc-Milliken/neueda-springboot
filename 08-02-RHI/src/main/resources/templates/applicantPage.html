@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+	<title>RHI Applicants</title>
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+   <nav th:replace="layouts/nav :: navFragment">
+
+	</nav>
+
+<div class="container">
+           <a class="btn btn-success" href="/applicants/add" role="button">Add New</a>
+         </div>
+         <br />
+
+	<div class="alert alert-success" role="alert" th:if="${message}">
+			
+			<p th:text="${message}"></p>
+			
+		</div>	
+
+<div class="container">
+  <h2>RHI Applicants</h2>        
+  <table class="table table-bordered" id="myTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+		<th>View, Edit, Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="applicant : ${applicants}">
+
+        <td th:text="${applicant.name}"></td>
+
+        <td><a class="btn btn-info" href="#" th:href="@{applicants/view/} + ${applicant.applicantId}" role="button">View</a> 
+						<a class="btn btn-primary" href="#" th:href="@{applicants/edit/} + ${applicant.applicantId}" role="button">Edit</a> 
+						<a class="btn btn-danger" href="#" th:href="@{applicants/delete/} + ${applicant.applicantId}" role="button">Delete</a> </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+
+</body>
+</html>

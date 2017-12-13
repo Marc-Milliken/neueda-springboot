@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+<title>Edit Applicant</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<nav th:replace="layouts/nav :: navFragment"></nav>
+
+	<div class="container">
+
+		<form class="form-horizontal" th:action="@{/applicants/save}"
+			th:object="${applicant}" method="POST">
+
+			<input type="hidden" th:field="${applicant.applicantId}" /> 
+			
+			
+			<label class="col-md-2">Applicant</label> 
+			
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="${applicant.name}" /> 
+				<span th:if="${#fields.hasErrors('name')}" th:errors="${applicant.name}"
+					th:class="help-block">Applicant Name Error</span>
+			</div>
+			
+
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<td>Application Date</td>
+					<td> <input type="text" class="form-control"
+						th:field="${applicant.date}" /></td>
+				</tr>
+				<tr>
+					<td>Business or Installation Location</td>
+					<td> <input type="text" class="form-control"
+						th:field="${applicant.location}" /></td>
+				</tr>
+				<tr>
+					<td>Technology Type Installation</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${applicant.techType}" /></td>
+				</tr>
+				<tr>
+					<td>Capacity</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${applicant.capacity}" /></td>
+				</tr>
+				<tr>
+					<td>Payment Made (£)</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${applicant.payment}" /></td>
+				</tr>
+	 		</tbody>
+		</table>
+		<button type="submit" class="btn btn-success">Save</button>
+		</form>
+	</div>
+	
+</body>
+</html>
