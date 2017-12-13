@@ -53,7 +53,7 @@ public class Passenger {
 		this.passengerId = passengerId;
 	}
 
-	public int getSurvived() {
+	public Integer getSurvived() {
 		return survived;
 	}
 
@@ -61,7 +61,7 @@ public class Passenger {
 		this.survived = survived;
 	}
 
-	public int getpClass() {
+	public Integer getpClass() {
 		return pClass;
 	}
 
@@ -93,7 +93,7 @@ public class Passenger {
 		this.age = age;
 	}
 
-	public int getSibSp() {
+	public Integer getSibSp() {
 		return sibSp;
 	}
 
@@ -101,7 +101,7 @@ public class Passenger {
 		this.sibSp = sibSp;
 	}
 
-	public int getParch() {
+	public Integer getParch() {
 		return parch;
 	}
 
@@ -117,7 +117,7 @@ public class Passenger {
 		this.ticket = ticket;
 	}
 
-	public double getFare() {
+	public Double getFare() {
 		return fare;
 	}
 
