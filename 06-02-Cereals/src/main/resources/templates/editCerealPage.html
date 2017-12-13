@@ -18,7 +18,7 @@
 		<form class="form-horizontal" th:action="@{/cereals/save}"
 			th:object="${cereal}" method="POST">
 
-			<input type="hidden" th:fields="${cereals.cerealID}" /> 
+			<input type="hidden" th:field="${cereal.cerealId}" /> 
 			
 			
 			<label class="col-md-2">Cereal</label> 
@@ -103,7 +103,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" class="btn btn-success">Save</button>
 		</form>
 
 	</div>

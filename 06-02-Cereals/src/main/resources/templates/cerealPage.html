@@ -16,6 +16,13 @@
 	<div class="container"></div>
 
 	<div class="container">
+	
+		<div class="alert alert-success" role="alert" th:if="${message}">
+			
+			<p th:text="${message}"></p>
+			
+		</div>	
+
 		<h2>Breakfast Cereals</h2>
 		<table class="table table-bordered">
 			<thead>
@@ -29,13 +36,14 @@
 				<tr th:each="cereal : ${cereals}">
 					<td th:text="${cereal.manufacturer}"></td>
 					<td th:text="${cereal.name}"></td>
-					<td><a href="#" th:href="@{cereals/view/} + ${cereal.cerealId}">View</a> 
-						<a href="#" th:href="@{cereals/edit/} + ${cereal.cerealId}">Edit</a> 
-						<a href="#" th:href="@{cereals/delete/} + ${cereal.cerealId}">Delete</a> </td>
+					<td><a class="btn btn-info" href="#" th:href="@{cereals/view/} + ${cereal.cerealId}" role="button">View</a> 
+						<a class="btn btn-primary" href="#" th:href="@{cereals/edit/} + ${cereal.cerealId}" role="button">Edit</a> 
+						<a class="btn btn-danger" href="#" th:href="@{cereals/delete/} + ${cereal.cerealId}" role="button">Delete</a> </td>
 				</tr>
 			</tbody>
 		</table>
-		<a class="btn btn-primary" href="/cereals/add" role="button">Add New</a>
+		<a class="btn btn-success" href="/cereals/add" role="button">Add New</a>
+		<br />
 	</div>
 
 
