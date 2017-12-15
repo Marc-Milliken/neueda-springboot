@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+	<title>Titanic Passengers</title>
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+	$(document).ready(
+			function() {
+				$("#mySearch").on(
+						"keyup",
+						function() {
+							var value = $(this).val().toLowerCase();
+							$("#myTable tr").filter(
+									function() {
+										$(this).toggle(
+												$(this).text().toLowerCase()
+														.indexOf(value) > -1)
+									});
+						});
+			});
+</script>
+</head>
+
+<body>
+
+   <nav th:replace="layouts/nav :: navFragment">
+
+	</nav>
+
+<div class="container">
+         <h2>Search Passengers</h2>
+         <div class="btn-group btn-group-justified">
+           <a href="/passengers" class="btn btn-info">Passengers</a>
+           <a href="/passengers/survivors" class="btn btn-info">Survivors</a>
+           <a href="/passengers/victims" class="btn btn-info">Victims</a>
+           <a href="/passengers/first-class" class="btn btn-info">First Class</a>
+           <a href="/passengers/second-class" class="btn btn-info">Second Class</a>
+           <a href="/passengers/third-class" class="btn btn-info">Third Class</a>
+           <a class="btn btn-success" href="/passengers/add" role="button">Add New</a>
+         </div>
+         <br />
+         <input class="form-control" id="mySearch" type="text" placeholder="Search..." ></input>    
+  <br />
+	</div>
+
+<div class="container">
+  <h2>Titanic Passengers</h2>        
+  <table class="table table-bordered" id="myTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+		<th>View, Edit, Delete</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr th:each="passenger : ${passengers}">
+
+        <td th:text="${passenger.name}"></td>
+
+        <td><a class="btn btn-info" href="#" th:href="@{passengers/view/} + ${passenger.passengerId}" role="button">View</a> 
+						<a class="btn btn-primary" href="#" th:href="@{passengers/edit/} + ${passenger.passengerId}" role="button">Edit</a> 
+						<a class="btn btn-danger" href="#" th:href="@{passengers/delete/} + ${passenger.passengerId}" role="button">Delete</a> </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+<script type="text/javascript">
+
+function myFunction() {
+	  var input, filter, table, tr, td, i;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i &lt; tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[0];
+	    if (td) {
+	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }       
+	  }
+	}
+</script>
+
+</body>
+</html>

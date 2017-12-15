@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+<title>Passengers</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<nav th:replace="layouts/nav :: navFragment"></nav>
+
+	<div class="container">
+
+		<form class="form-horizontal" th:action="@{/passengers/save}"
+			th:object="${passenger}" method="POST">
+
+			<input type="hidden" th:field="${passenger.passengerId}" /> 
+			
+			
+			<label class="col-md-2">Passenger</label> 
+			
+			<div class="form-group">
+				<input type="text" class="form-control" th:field="${passenger.name}" /> 
+				<span th:if="${#fields.hasErrors('name')}" th:errors="${passenger.name}"
+					th:class="help-block">Passenger Name Error</span>
+			</div>
+			
+
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<td>Survived</td>
+					<td> <input type="text" class="form-control"
+						th:field="${passenger.survived}" /></td>
+				</tr>
+				<tr>
+					<td>Passenger Class</td>
+					<td> <input type="text" class="form-control"
+						th:field="${passenger.pClass}" /></td>
+				</tr>
+				<tr>
+					<td>Sex</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${passenger.sex}" /></td>
+				</tr>
+				<tr>
+					<td>Age</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${passenger.age}" /></td>
+				</tr>
+				<tr>
+					<td>Sibling/Spouse</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${passenger.sibSp}" /></td>
+				</tr>
+				<tr>
+					<td>Parent/Child</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${passenger.parch}" /></td>
+				</tr>
+				<tr>
+					<td>Ticket</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${passenger.ticket}" /></td>
+				</tr>
+				<tr>
+					<td>Fare</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${passenger.fare}" /></td>
+				</tr>
+				<tr>
+					<td>Cabin</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${passenger.cabin}" /></td>
+				</tr>
+				<tr>
+					<td>Embarked</td>
+					<td> <input type="text" class="form-control" 
+						th:field="${passenger.embarked}" /></td>
+				</tr>
+			
+	 		</tbody>
+		</table>
+		<button type="submit" class="btn btn-success">Save</button>
+		</form>
+	</div>
+	
+</body>
+</html>

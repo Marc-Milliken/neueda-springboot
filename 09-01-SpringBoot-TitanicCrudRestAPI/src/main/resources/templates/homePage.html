@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+
+	<title>Titanic</title>
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<style>
+.footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   background-color: lavender;
+   color: black;
+   text-align: right;
+}
+</style>
+	
+	
+</head>
+
+<body>
+		
+	<nav th:replace="layouts/nav :: navFragment">
+		
+	</nav>
+		
+		
+	<div class="jumbotron text-center" >
+		<h2>Titanic Passengers</h2>
+	</div>
+	
+	<div class="container">
+         <h2>Titanic Passengers</h2>
+         <div class="btn-group btn-group-justified">
+           <a href="/passengers" class="btn btn-info">Passengers</a>
+         </div>
+	</div>
+
+<div class="footer">
+  <p>Copyright Marc Milliken</p>
+</div>
+
+</body>
+</html>
