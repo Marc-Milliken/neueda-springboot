@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+	<title>Belfast Events</title>
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+   <nav th:replace="layouts/nav :: navFragment">
+
+	</nav>
+
+<div class="container">
+  <h2>Belfast Events</h2>        
+  <table class="table table-bordered" id="myTable">
+    <thead>
+      <tr>
+		<th>Title</th>
+		<th>Start Date</th>
+		<th>End Date</th>
+		<th>Venue</th>
+		<th>Image</th>
+		<th>View Event</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="event : ${event}">
+        <td th:text="${event.title}"></td>
+        <td th:text="${#dates.format(event.startDate, 'dd/MM/yyyy')}"></td>
+        <td th:if="${event.endDate != null}" th:text="${#dates.format(event.endDate, 'dd/MM/yyyy')}"></td>
+        <td th:if="${event.endDate == null}" th:text="null"></td>
+        <td th:text="${event.venue}"></td>
+        <td><img th:src="${event.image}" width="300" height="180" /></td>
+        <td><a class="btn btn-info" href="#" th:href="@{events/view/} + ${event.identifier}" role="button">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+
+</body>
+</html>

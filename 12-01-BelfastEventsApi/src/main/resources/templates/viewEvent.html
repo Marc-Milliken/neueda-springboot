@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+<title>Belfast Event</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<nav th:replace="layouts/nav :: navFragment"></nav>
+
+	<div class="jumbotron text-center" th:each="event : ${event}">
+
+		<h1 th:text="${event.title}"></h1>
+		<br />
+	</div>
+
+	<div class="container">
+		<table class="table table-bordered">
+			<tbody th:each="event : ${event}">
+				<tr>
+					<td>Identifier</td>
+					<td th:text="${event.identifier}"></td>
+				</tr>
+				<tr>
+					<td>Url</td>
+					<td th:text="${event.url}"></td>
+				</tr>
+				<tr>
+					<td>Title</td>
+					<td th:text="${event.title}"></td>
+				</tr>
+				<tr>
+					<td>Start Date</td>
+					<td th:text="${#dates.format(event.startDate, 'dd/MM/yyyy')}"></td>
+				</tr>
+				<tr>
+					<td>End Date</td>
+					<td th:if="${event.endDate != null}" th:text="${#dates.format(event.endDate, 'dd/MM/yyyy')}"></td>
+       				<td th:if="${event.endDate == null}" th:text="null"></td>
+				</tr>
+				<tr>
+					<td>Time</td>
+					<td th:text="${event.time}"></td>
+				</tr>
+				<tr>
+					<td>Venue</td>
+					<td th:text="${event.venue}"></td>
+				</tr>
+				<tr>
+					<td>Venue Url</td>
+					<td>
+						<div th:switch="${event.venueUrl}">
+						<p th:case="''" th:text="${event.venue}">Venue has no link</p>
+						<p th:case="*">
+							<a href="" th:href="${event.venueUrl}" th:text="${event.venue}"
+								target="_blank">Venue has a link</a>
+						</p>	
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><img th:src="${event.image}" width="300" height="180" /></td>
+				</tr>
+				<tr>
+					<td>Audience</td>
+					<td th:text="${event.audience}"></td>
+				</tr>
+				<tr>
+					<td>Theme</td>
+					<td th:text="${event.theme}"></td>
+				</tr>
+			<tr>
+					<td>Cost</td>
+					<td th:text="${event.cost}"></td>
+				</tr>
+				<tr>
+					<td>Content</td>
+					<td th:text="${event.content}"></td>
+				</tr>
+	 		</tbody>
+		</table>
+	</div>
+</body>
+</html>
