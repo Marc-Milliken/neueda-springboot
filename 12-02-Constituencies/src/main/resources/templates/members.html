@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+
+	<title>NI Constitency Assembly Members</title>
+	<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+   <nav th:replace="layouts/nav :: navFragment">
+
+	</nav>
+
+<div class="container">
+  <h2>Assembly Members</h2>        
+  <table class="table table-bordered" id="myTable">
+    <thead>
+      <tr>
+		<th>Person Id</th>
+		<th>Affiliation Id</th>
+		<th>Member Name</th>
+		<th>Member Last Name</th>
+		<th>Member First Name</th>
+		<th>Member Full Name</th>
+		<th>Member Sort Name</th>
+		<th>Member Title</th>
+		<th>Party Name</th>
+		<th>Party Organisation Id</th>
+		<th>Constituency Name</th>
+		<th>Constituency Id</th>
+		<th>Member Image</th>
+		<th>Member Prefix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="member : ${member}">
+        <td th:text="${member.personId}"></td>
+        <td th:text="${member.affiliationId}"></td>
+        <td th:text="${member.memberName}"></td>
+        <td th:text="${member.memberLastName}"></td>
+        <td th:text="${member.memberFirstName}"></td>
+        <td th:text="${member.memberFullDisplayName}"></td>
+        <td th:text="${member.memberSortName}"></td>
+        <td th:text="${member.memberTitle}"></td>
+        <td th:text="${member.partyName}"></td>
+        <td th:text="${member.partyOrganisationId}"></td>
+        <td th:text="${member.constituencyName}"></td>
+        <td th:text="${member.constituencyId}"></td>
+        <td><img th:src="${member.memberImgUrl}" width="300" height="180" /></td>
+        <td th:text="${member.memberPrefix}"></td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+
+</body>
+</html>
