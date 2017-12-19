@@ -58,9 +58,7 @@ public class EventController {
 			{
 				requestedEvent = event;
 			}
-
 		}
-		
 		model.addAttribute("event", requestedEvent);
 		
 		return "viewEvent";

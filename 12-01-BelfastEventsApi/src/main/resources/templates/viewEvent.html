@@ -27,7 +27,16 @@
 				</tr>
 				<tr>
 					<td>Url</td>
-					<td th:text="${event.url}"></td>
+					<td>
+					<div th:switch="${event.url}">
+						<p th:case="''" th:text="${event.url}">Venue has no link</p>
+						<p th:case="*">
+							<a href="" th:href="${event.url}" th:text="${event.url}"
+								target="_blank">Venue has a link</a>
+						</p>	
+						</div>
+					
+					</td>
 				</tr>
 				<tr>
 					<td>Title</td>
@@ -54,9 +63,9 @@
 					<td>Venue Url</td>
 					<td>
 						<div th:switch="${event.venueUrl}">
-						<p th:case="''" th:text="${event.venue}">Venue has no link</p>
+						<p th:case="''" th:text="${event.venueUrl}">Venue has no link</p>
 						<p th:case="*">
-							<a href="" th:href="${event.venueUrl}" th:text="${event.venue}"
+							<a href="" th:href="${event.venueUrl}" th:text="${event.venueUrl}"
 								target="_blank">Venue has a link</a>
 						</p>	
 						</div>
