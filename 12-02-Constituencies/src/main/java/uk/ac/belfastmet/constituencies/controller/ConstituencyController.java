@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import uk.ac.belfastmet.constituencies.domain.AllMembers;
+import uk.ac.belfastmet.constituencies.domain.AllMembersList;
 import uk.ac.belfastmet.constituencies.domain.Member;
 
 
@@ -27,19 +28,39 @@ public class ConstituencyController {
 	public String members(Model model) {
 		
 		model.addAttribute("pageTitle", "MLA Members");
-		
-		String mlaMembersUrl = "https://api.myjson.com/bins/y888n";
+		String mlaMembersUrl = "http://data.niassembly.gov.uk/members_json.ashx?m=GetAllCurrentMembers";
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
 		AllMembers allMembers = restTemplate.getForObject(mlaMembersUrl, AllMembers.class);
 		
-		model.addAttribute("member", allMembers.getAllMembers());
+		ArrayList<Member> members = allMembers.getAllMembersList().getAllMembers();
+		
+		model.addAttribute("member", members);
+		
+		return "members";
+	}
+
+	
+	@GetMapping("/constituency/{constituencyId}")
+	public String event(@PathVariable("constituencyId") Integer constituencyId,  Model model) {
+		
+		model.addAttribute("pageTitle", "MLA Members");
+		String mlaMembersUrl = "http://data.niassembly.gov.uk/members_json.ashx?m=GetAllCurrentMembersByConstituencyId&constituencyId=";
+		
+		RestTemplate restTemplate = new RestTemplate();
+		
+		AllMembers allMembers = restTemplate.getForObject(mlaMembersUrl + constituencyId.toString(), AllMembers.class);
+		
+		ArrayList<Member> members = allMembers.getAllMembersList().getAllMembers();
+		
+		model.addAttribute("member", members);
 		
 		return "members";
 	}
 	
-	@GetMapping("/constituency/{constituencyId}")
+	
+	/*@GetMapping("/constituency/{constituencyId}")
 	public String singleEvent(Model model, @PathVariable("constituencyId") String constituencyId)
 	{
 		model.addAttribute("pageTitle", "Constituency");
@@ -48,7 +69,7 @@ public class ConstituencyController {
 		String membersUrl = "https://api.myjson.com/bins/y888n";
 		
 		RestTemplate restTemplate = new RestTemplate();
-		AllMembers members = restTemplate.getForObject(membersUrl, AllMembers.class);
+		AllMembersList members = restTemplate.getForObject(membersUrl, AllMembersList.class);
 		ArrayList<Member> requestedMembers = new ArrayList<Member>();
 		
 
@@ -65,6 +86,6 @@ public class ConstituencyController {
 		model.addAttribute("constituency", requestedMembers.get(0).getConstituencyName());
 		model.addAttribute("member", requestedMembers);
 		return "members";
-	}
+	}*/
 	
 }
